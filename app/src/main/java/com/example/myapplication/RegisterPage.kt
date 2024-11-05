@@ -23,7 +23,7 @@ class RegisterPage : AppCompatActivity() {
     lateinit var rbbestea: RadioButton
     lateinit var hiria: Spinner
     lateinit var terminos: CheckBox
-    lateinit var dbHelper: SQL_User_Database  // Inicializar dbHelper
+    lateinit var dbHelper: SQL_User_Database
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
