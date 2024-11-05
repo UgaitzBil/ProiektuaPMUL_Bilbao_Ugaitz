@@ -36,32 +36,29 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterPage::class.java)
             startActivity(intent)
         }
-
-
     }
-
-
     private fun SaioHasi() {
-        val gmail = user.text.toString()
-        val contraseña = pass.text.toString()
+        val gmail = user.text.toString().trim()
+        val contraseña = pass.text.toString().trim()
 
         if (gmail.isEmpty() || contraseña.isEmpty()) {
             Toast.makeText(this, "Mesedez datu guztiak sartu", Toast.LENGTH_SHORT).show()
             return
         }
 
-        val admin = SQL_User_Database(this, "usuarios", null, 1)
-        val bd = admin.writableDatabase
 
+        val admin = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
+        val bd = admin.readableDatabase
+
+        // Cambiado 'contraseña' a 'pasahitza'
         val cursor = bd.rawQuery(
-            "SELECT * FROM usuarios WHERE gmail = ? AND contraseña = ?",
+            "SELECT * FROM erabiltzaileak WHERE gmail = ? AND pasahitza = ?",
             arrayOf(gmail, contraseña)
         )
 
-        if (cursor.count > 0) {
-
+        // Cambiado a moveToFirst() para verificar si hay resultados
+        if (cursor.moveToFirst()) {
             Toast.makeText(this, "Saioa ongi hasi da!", Toast.LENGTH_SHORT).show()
-
 
         } else {
             Toast.makeText(this, "Gmail-a edo pasahitza txarto dago", Toast.LENGTH_SHORT).show()
