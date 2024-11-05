@@ -8,82 +8,114 @@
     android:background="#90DBFF"
     tools:context=".RegisterPage">
 
-    <EditText
-        android:id="@+id/ftadina"
-        android:layout_width="340dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="71dp"
-        android:ems="10"
-        android:hint="Sartu adina"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftabizena" />
+    <RadioGroup
+        android:id="@+id/radioGroupGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+    </RadioGroup>
     <EditText
         android:id="@+id/ftpassword"
         android:layout_width="340dp"
         android:layout_height="51dp"
         android:layout_marginTop="71dp"
         android:ems="10"
-        android:hint="Sartu pasahitza"
+        android:hint="Sartu Pasahitza"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftadina" />
+        app:layout_constraintTop_toBottomOf="@+id/tfgmail" />
 
     <EditText
-        android:id="@+id/ftabizena"
+        android:id="@+id/tfgmail"
         android:layout_width="340dp"
         android:layout_height="51dp"
         android:layout_marginTop="71dp"
         android:ems="10"
-        android:hint="Sartu abizena"
+        android:hint="Sartu Gmail-a"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftizena" />
-
-    <EditText
-        android:id="@+id/ftizena"
-        android:layout_width="340dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="71dp"
-        android:ems="10"
-        android:hint="Sartu izena"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftdni" />
+        app:layout_constraintTop_toBottomOf="@+id/ftuser" />
 
     <Button
         android:id="@+id/btnreg"
         android:layout_width="368dp"
         android:layout_height="53dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="616dp"
         android:backgroundTint="#FDE5A2"
         android:text="ERREGISTRATU"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ftpassword" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ftdni"
+        android:id="@+id/ftuser"
         android:layout_width="340dp"
         android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="DNI-a sartu"
+        android:hint="Erabiltzailea Sartu"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="357dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="432dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="344dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="524dp"
+        android:text="Baldintzak eta terminoak onartzen dituzu?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/rbboy"
+        android:layout_width="99dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Mutila"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftpassword" />
+
+    <RadioButton
+        android:id="@+id/rbgirl"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="156dp"
+        android:text="Neska"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftpassword" />
+
+    <RadioButton
+        android:id="@+id/rbbestea"
+        android:layout_width="92dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="24dp"
+        android:text="Bestea"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftpassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,14 @@ public class SQL_User_Database (
 ) : SQLiteOpenHelper(context, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("CREATE TABLE usuarios( dni TEXT PRIMARY KEY, nombre TEXT, apellido TEXT, gmail TEXT,contraseña TEXT)")
+        db.execSQL("CREATE TABLE erabiltzaileak( " +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "erabiltzailea TEXT, " +
+                    "gmail TEXT, " +
+                    "pasahitza TEXT, " +
+                    "generoa TEXT)"
+        )
+
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
