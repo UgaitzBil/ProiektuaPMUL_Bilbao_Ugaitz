@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90DBFF"
+    tools:context=".RegisterPage">
+
+    <EditText
+        android:id="@+id/ftadina"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="71dp"
+        android:ems="10"
+        android:hint="Sartu adina"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftabizena" />
+
+    <EditText
+        android:id="@+id/ftpassword"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="71dp"
+        android:ems="10"
+        android:hint="Sartu pasahitza"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftadina" />
+
+    <EditText
+        android:id="@+id/ftabizena"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="71dp"
+        android:ems="10"
+        android:hint="Sartu abizena"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftizena" />
+
+    <EditText
+        android:id="@+id/ftizena"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="71dp"
+        android:ems="10"
+        android:hint="Sartu izena"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftdni" />
+
+    <Button
+        android:id="@+id/btnreg"
+        android:layout_width="368dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="#FDE5A2"
+        android:text="ERREGISTRATU"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ftpassword" />
+
+    <EditText
+        android:id="@+id/ftdni"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="DNI-a sartu"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
