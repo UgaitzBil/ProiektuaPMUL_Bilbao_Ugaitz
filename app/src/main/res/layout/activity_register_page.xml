@@ -8,13 +8,6 @@
     android:background="#90DBFF"
     tools:context=".RegisterPage">
 
-    <RadioGroup
-        android:id="@+id/radioGroupGenero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </RadioGroup>
     <EditText
         android:id="@+id/ftpassword"
         android:layout_width="340dp"
