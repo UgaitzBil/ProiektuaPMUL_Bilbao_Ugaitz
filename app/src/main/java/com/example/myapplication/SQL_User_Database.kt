@@ -14,13 +14,24 @@ public class SQL_User_Database (
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE erabiltzaileak( " +
-                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "erabiltzailea TEXT, " +
-                    "gmail TEXT, " +
-                    "pasahitza TEXT, " +
-                    "generoa TEXT)"
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "erabiltzailea TEXT, " +
+                "gmail TEXT, " +
+                "pasahitza TEXT, " +
+                "generoa TEXT)"
         )
 
+    }
+
+    fun onCreateProducts(db: SQLiteDatabase) {
+        db.execSQL("CREATE TABLE produktuak( " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "izenburua TEXT, " +
+                "kategoria TEXT, " +
+                "marka TEXT, " +
+                "prezioa DOUBLE, " +
+                "eskuragarritasuna BOOLEAN)"
+        )
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
@@ -37,5 +48,16 @@ public class SQL_User_Database (
         }
 
         return db.insert("erabiltzaileak", null, values)
+    }
+    fun insertProduct(izenburua: String, kategoria: String, marka: String, prezioa: Double, eskuragarritasuna: Boolean): Long {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put("izenburua", izenburua)
+            put("kategoria", kategoria)
+            put("marka", marka)
+            put("prezioa", prezioa)
+            put("eskuragarritasuna", if (eskuragarritasuna) 1 else 0)
+        }
+        return db.insert("produktuak", null, values)
     }
 }
