@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         btnlog.setOnClickListener {
             SaioHasi()
+            val intent = Intent(this, Menu::class.java)
+            startActivity(intent)
         }
         btnerreg.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
