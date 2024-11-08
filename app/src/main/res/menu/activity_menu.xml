@@ -5,23 +5,28 @@
         android:id="@+id/action_create_product"
         android:title="Crear Producto"
         android:icon="@drawable/ic_create"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_delete_product"
         android:title="Eliminar Producto"
         android:icon="@drawable/ic_delete"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
     <item
+        android:id="@+id/action_update_product"
+        android:icon="@drawable/ic_update"
+        android:title="Productua Eguneratu"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_log_out"
-        android:title="Cerrar Sesión"
-        android:icon="@drawable/ic_exit_to_app"
-        app:showAsAction="ifRoom" />
+        android:icon="@drawable/ic_log_out"
+        android:title="Saioa Itxi"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/action_go_out"
-        android:title="Salir"
         android:icon="@drawable/ic_exit_to_app"
-        app:showAsAction="ifRoom" />
+        android:title="Progamatik Irten"
+        app:showAsAction="always" />
 </menu>

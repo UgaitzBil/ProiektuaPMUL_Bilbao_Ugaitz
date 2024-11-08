@@ -1,31 +1,35 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class Menu : AppCompatActivity() {
+
+class Menu2 : AppCompatActivity() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)  // Asegúrate de que el layout esté correcto
+        setContentView(R.layout.activity_menu2)  // Asegúrate de que el layout esté correcto
     }
 
-    // Inflar el menú
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.activity_menu, menu)   // Nombre del archivo XML de menú
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_menu, menu)
+       // return super.onCreateOptionsMenu(menu)
         return true
-    }*/
+    }
 
     // Manejar la selección de los elementos del menú
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_create_product -> {
                 // Acción para crear un producto
+                val intent = Intent(this, Productua_gehitu::class.java)  // Reemplaza con tu actividad de login
+                startActivity(intent)
                 true
             }
             R.id.action_delete_product -> {
@@ -41,7 +45,7 @@ class Menu : AppCompatActivity() {
             }
             R.id.action_go_out -> {
                 // Acción para salir de la aplicación
-                finish()  // Finalizar la actividad y salir
+                finishAffinity()   // Finalizar la actividad y salir
                 true
             }
             else -> super.onOptionsItemSelected(item)

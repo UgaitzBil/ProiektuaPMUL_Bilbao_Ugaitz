@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +14,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var pass: TextView
     lateinit var btnlog: Button
     lateinit var btnerreg: Button
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val screenSplash = installSplashScreen()
@@ -31,14 +28,13 @@ class MainActivity : AppCompatActivity() {
 
         btnlog.setOnClickListener {
             SaioHasi()
-            val intent = Intent(this, Menu::class.java)
-            startActivity(intent)
         }
         btnerreg.setOnClickListener {
             val intent = Intent(this, RegisterPage::class.java)
             startActivity(intent)
         }
     }
+
     private fun SaioHasi() {
         val gmail = user.text.toString().trim()
         val contraseña = pass.text.toString().trim()
@@ -48,20 +44,19 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-
         val admin = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
         val bd = admin.readableDatabase
 
-        // Cambiado 'contraseña' a 'pasahitza'
         val cursor = bd.rawQuery(
             "SELECT * FROM erabiltzaileak WHERE gmail = ? AND pasahitza = ?",
             arrayOf(gmail, contraseña)
         )
 
-        // Cambiado a moveToFirst() para verificar si hay resultados
         if (cursor.moveToFirst()) {
             Toast.makeText(this, "Saioa ongi hasi da!", Toast.LENGTH_SHORT).show()
-
+            // Solo se inicia el nuevo Activity si las credenciales son correctas
+            val intent = Intent(this, Menu2::class.java)
+            startActivity(intent)
         } else {
             Toast.makeText(this, "Gmail-a edo pasahitza txarto dago", Toast.LENGTH_SHORT).show()
         }
