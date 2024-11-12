@@ -14,26 +14,24 @@ class Menu2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu2)  // Asegúrate de que el layout esté correcto
+        setContentView(R.layout.activity_menu2)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_menu, menu)
-       // return super.onCreateOptionsMenu(menu)
         return true
     }
 
-    // Manejar la selección de los elementos del menú
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_create_product -> {
-                // Acción para crear un producto
                 val intent = Intent(this, Productua_gehitu::class.java)  // Reemplaza con tu actividad de login
                 startActivity(intent)
                 true
             }
             R.id.action_delete_product -> {
-                // Acción para eliminar un producto
+
                 true
             }
             R.id.action_log_out -> {

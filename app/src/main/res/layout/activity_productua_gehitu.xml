@@ -5,6 +5,60 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#90DBFF"
     tools:context=".Productua_gehitu">
 
+    <EditText
+        android:id="@+id/tfmarka"
+        android:layout_width="316dp"
+        android:layout_height="58dp"
+        android:ems="10"
+        android:hint="Produktuaren marka sartu"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="175dp"
+        android:layout_height="62dp"
+        android:background="#FDE5A2"
+        android:text="Productua Gehitu"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="585dp" />
+
+    <EditText
+        android:id="@+id/tfizenprod"
+        android:layout_width="316dp"
+        android:layout_height="58dp"
+        android:ems="10"
+        android:hint="Produktuaren izena sartu"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="35dp" />
+
+    <Spinner
+        android:id="@+id/mota"
+        android:layout_width="380dp"
+        android:layout_height="57dp"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="141dp" />
+
+    <EditText
+        android:id="@+id/tfprice"
+        android:layout_width="212dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:hint="Productuaren prezioa"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="349dp" />
+
+    <CheckBox
+        android:id="@+id/eskuragarritasuna"
+        android:layout_width="198dp"
+        android:layout_height="63dp"
+        android:text="Eskuragarritasuna"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="463dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
