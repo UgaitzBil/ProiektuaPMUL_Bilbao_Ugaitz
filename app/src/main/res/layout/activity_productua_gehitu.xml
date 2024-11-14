@@ -12,53 +12,70 @@
         android:id="@+id/tfmarka"
         android:layout_width="316dp"
         android:layout_height="58dp"
+        android:layout_marginTop="256dp"
         android:ems="10"
         android:hint="Produktuaren marka sartu"
         android:inputType="text"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="175dp"
         android:layout_height="62dp"
+        android:layout_marginTop="588dp"
         android:background="#FDE5A2"
         android:text="Productua Gehitu"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="585dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfizenprod"
         android:layout_width="316dp"
         android:layout_height="58dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Produktuaren izena sartu"
         android:inputType="text"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="35dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/mota"
-        android:layout_width="380dp"
-        android:layout_height="57dp"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="141dp" />
+        android:layout_width="318dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tfprice"
         android:layout_width="212dp"
         android:layout_height="52dp"
+        android:layout_marginTop="364dp"
         android:ems="10"
         android:hint="Productuaren prezioa"
         android:inputType="number"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="349dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.241"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/eskuragarritasuna"
         android:layout_width="198dp"
         android:layout_height="63dp"
+        android:layout_marginTop="464dp"
         android:text="Eskuragarritasuna"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="463dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
