@@ -34,9 +34,11 @@ class SQL_User_Database(
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS erabiltzaileak")
-        db.execSQL("DROP TABLE IF EXISTS produktuak")
-        onCreate(db)
+        if(oldVersion < 2) {
+            db.execSQL("DROP TABLE IF EXISTS erabiltzaileak")
+            db.execSQL("DROP TABLE IF EXISTS produktuak")
+            onCreate(db)
+        }
     }
 
     fun insertUser(erabiltzailea: String, gmail: String, pasahitza: String, generoa: String): Long {

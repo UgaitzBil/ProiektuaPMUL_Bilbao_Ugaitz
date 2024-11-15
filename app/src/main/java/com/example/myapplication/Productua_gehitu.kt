@@ -28,7 +28,7 @@ class Productua_gehitu : AppCompatActivity() {
         prezioa = findViewById(R.id.tfprice)
         btngehitu = findViewById(R.id.button)
 
-        database = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 2) // Incrementa la versión a 2 o superior
+        database = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1) // Incrementa la versión a 2 o superior
 
         val ListakoAukerak = arrayOf("Telefonoa", "Ordenagailua", "Telebista", "Osagarria")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ListakoAukerak)
