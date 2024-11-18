@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import android.util.Patterns
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +45,12 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
+        // Validar formato del correo electrónico
+        if (!isValidEmail(gmail)) {
+            Toast.makeText(this, "Sartu baliozko Gmail-a", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val admin = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
         val bd = admin.readableDatabase
 
@@ -63,5 +70,10 @@ class MainActivity : AppCompatActivity() {
 
         cursor.close()
         bd.close()
+    }
+
+    // Método para validar el formato del correo electrónico
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 }

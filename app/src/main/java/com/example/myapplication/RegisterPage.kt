@@ -2,7 +2,7 @@ package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Patterns
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class RegisterPage : AppCompatActivity() {
 
+    // Declaración de variables
     lateinit var user: TextView
     lateinit var pass: TextView
     lateinit var gmail: TextView
@@ -29,6 +30,7 @@ class RegisterPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_page)
 
+        // Inicialización de vistas
         user = findViewById(R.id.ftuser)
         pass = findViewById(R.id.ftpassword)
         gmail = findViewById(R.id.tfgmail)
@@ -41,7 +43,6 @@ class RegisterPage : AppCompatActivity() {
 
         dbHelper = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
 
-
         val ListakoAukerak = arrayOf("Madril", "Bartzelona", "Valentzia")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ListakoAukerak)
         hiria.adapter = adapter
@@ -53,6 +54,15 @@ class RegisterPage : AppCompatActivity() {
 
     private fun registerUser() {
         if (verifyInputFields()) {
+            val mail = gmail.text.toString().trim()
+
+            // Verificar si el Gmail ya está registrado
+            if (isEmailRegistered(mail)) {
+                Toast.makeText(this, "Gmail hau jadanik erregistratuta dago", Toast.LENGTH_SHORT)
+                    .show()
+                return
+            }
+
             insertUserIntoDatabase()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -74,11 +84,36 @@ class RegisterPage : AppCompatActivity() {
 
         // Verificar campos
         return if (erabiltzailea.isEmpty() || pasahitza.isEmpty() || mail.isEmpty() || generoa.isEmpty() || !terminos.isChecked) {
-            Toast.makeText(this, "Mesedez, bete eremu guztiak eta onartu baldintzak", Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "Mesedez, bete eremu guztiak eta onartu baldintzak",
+                Toast.LENGTH_SHORT
+            ).show()
+            false
+        } else if (!isValidEmail(mail)) {
+            Toast.makeText(this, "Mesedez, sartu baliozko posta elektronikoa", Toast.LENGTH_SHORT)
+                .show()
             false
         } else {
             true
         }
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    private fun isEmailRegistered(email: String): Boolean {
+        val db = dbHelper.readableDatabase
+        val cursor = db.rawQuery(
+            "SELECT * FROM erabiltzaileak WHERE gmail = ?",
+            arrayOf(email)
+        )
+
+        val isRegistered = cursor.moveToFirst()
+        cursor.close()
+        db.close()
+        return isRegistered
     }
 
     private fun insertUserIntoDatabase() {
@@ -97,21 +132,10 @@ class RegisterPage : AppCompatActivity() {
         val result = dbHelper.insertUser(erabiltzailea, mail, pasahitza, generoa)
         if (result != -1L) {
             Toast.makeText(this, "Erregistroa arrakastatsua izan da", Toast.LENGTH_SHORT).show()
-            clearFields()
+
         } else {
             Toast.makeText(this, "Errorea erregistratzean", Toast.LENGTH_SHORT).show()
         }
     }
 
-    // Función para limpiar los campos después del registro
-    private fun clearFields() {
-        user.text = ""
-        pass.text = ""
-        gmail.text = ""
-        rbmutila.isChecked = false
-        rbneska.isChecked = false
-        rbbestea.isChecked = false
-        hiria.setSelection(0)
-        terminos.isChecked = false
-    }
 }
