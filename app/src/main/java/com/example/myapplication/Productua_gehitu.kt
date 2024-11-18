@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -48,11 +49,8 @@ class Productua_gehitu : AppCompatActivity() {
 
                     if (result != -1L) {
                         Toast.makeText(this, "Produktua sortu da", Toast.LENGTH_SHORT).show()
-                        // Limpiar campos
-                        izenaprod.setText("")
-                        marka.setText("")
-                        prezioa.setText("")
-                        mota.setSelection(0)
+                        val intent = Intent(this, Menu2::class.java)
+                        startActivity(intent)
                     } else {
                         Toast.makeText(this, "Errorea produktua sortzerakoan", Toast.LENGTH_SHORT).show()
                     }
