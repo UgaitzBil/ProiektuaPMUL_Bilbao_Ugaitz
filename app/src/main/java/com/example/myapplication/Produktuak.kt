@@ -1,8 +1,8 @@
-package com.example.myapplication
-
-class Produktuak(
+data class Produktuak(
     val id: Int,
     val izenburua: String,
-    val kategorioa: String,
-    val prezioa: Double
+    val kategoria: String,
+    val prezioa: Double,
+    val marka: String,
+    val eskuragarritasuna: Boolean
 )

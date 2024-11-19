@@ -94,6 +94,10 @@ class RegisterPage : AppCompatActivity() {
             Toast.makeText(this, "Mesedez, sartu baliozko posta elektronikoa", Toast.LENGTH_SHORT)
                 .show()
             false
+        } else if (pasahitza.length > 8) {
+            Toast.makeText(this, "Pasahitza ezin da 8 karaktere baino gehiago izan", Toast.LENGTH_SHORT)
+                .show()
+            false
         } else {
             true
         }

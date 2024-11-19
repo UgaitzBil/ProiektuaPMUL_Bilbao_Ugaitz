@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import Produktuak
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class NombreAdapter(private val produktuak: List<Produktuak>) :
+class NombreAdapter(private var produktuak: List<Produktuak>) :
     RecyclerView.Adapter<NombreAdapter.NombreViewHolder>() {
 
     private val selectedItems = mutableSetOf<Produktuak>() // Almacena los productos seleccionados
@@ -30,7 +31,7 @@ class NombreAdapter(private val produktuak: List<Produktuak>) :
 
         // Configurar los valores de los TextView
         holder.elizenburua.text = "Izena: ${produktua.izenburua}"
-        holder.elkategorioa.text = "Mota: ${produktua.kategorioa}"
+        holder.elkategorioa.text = "Mota: ${produktua.kategoria}"
         holder.elprezioa.text = "Prezioa: ${produktua.prezioa} €"
 
         // Configurar el CheckBox
@@ -53,5 +54,11 @@ class NombreAdapter(private val produktuak: List<Produktuak>) :
     // Método para obtener los productos seleccionados
     fun getSelectedItems(): List<Produktuak> {
         return selectedItems.toList()
+    }
+
+    // Método para actualizar los datos del adaptador
+    fun updateData(newData: List<Produktuak>) {
+        produktuak = newData // Actualiza la lista de productos
+        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
     }
 }
