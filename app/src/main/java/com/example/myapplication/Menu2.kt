@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,26 +43,53 @@ class Menu2 : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_create_product -> {
-                // Acción para crear un nuevo producto
+
                 val intent = Intent(this, Productua_gehitu::class.java)
                 startActivity(intent)
                 true
             }
             R.id.action_delete_product -> {
-                // Aquí puedes implementar la lógica para eliminar productos
-                // Esto podría abrir un diálogo para seleccionar el producto a eliminar
+
+                val selectedItems = adapter.getSelectedItems()
+                if (selectedItems.isNotEmpty()) {
+                    // Eliminar productos seleccionados de la base de datos
+                    selectedItems.forEach { product ->
+                        databaseHelper.deleteProduct(product.id) // Método para eliminar en la base de datos
+                    }
+
+                    // Actualizar la lista del adaptador
+                    val updatedList = databaseHelper.getProduktuak()
+                    adapter = NombreAdapter(updatedList)
+                    recyclerView.adapter = adapter
+                    Toast.makeText(
+                        this,
+                        "Produktua ezabatu da",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    // Mostrar mensaje si no se seleccionó ningún producto
+                    Toast.makeText(
+                        this,
+                        "Mesedez produktu bat aikeratu gutxienez",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                true
+            }
+            R.id.action_update_product -> {
+                
                 true
             }
             R.id.action_log_out -> {
-                // Acción para cerrar sesión
+
                 val intent = Intent(this, MainActivity::class.java) // Actividad de inicio de sesión
                 startActivity(intent)
-                finish()  // Cerrar esta actividad
+                finish()
                 true
             }
             R.id.action_go_out -> {
-                // Acción para salir de la aplicación
-                finishAffinity()  // Finalizar la actividad y salir
+
+                finishAffinity()
                 true
             }
             else -> super.onOptionsItemSelected(item)

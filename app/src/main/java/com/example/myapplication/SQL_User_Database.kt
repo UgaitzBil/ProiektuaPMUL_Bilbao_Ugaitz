@@ -86,4 +86,11 @@ class SQL_User_Database(
         cursor.close()
         return produktuak
     }
+    fun deleteProduct(productId: Int): Int {
+        val db = this.writableDatabase
+        val rowsDeleted = db.delete("produktuak", "id = ?", arrayOf(productId.toString()))
+        db.close()
+        return rowsDeleted
+    }
+
 }
