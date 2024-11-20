@@ -55,13 +55,16 @@ class Menu2 : AppCompatActivity() {
                         .setMessage("Ziur zaude hautatutako produktuak ezabatu nahi dituzula?")
                         .setPositiveButton("Sí") { _, _ ->
                             // Eliminar productos seleccionados
-                            selectedItems.forEach { product: Produktuak -> // Especificamos el tipo explícitamente
+                            selectedItems.forEach { product: Produktuak ->
                                 databaseHelper.deleteProduct(product.id)
                             }
 
                             // Actualizar la lista de productos en el RecyclerView
                             val updatedList = databaseHelper.getProduktuak()
                             adapter.updateData(updatedList)
+
+                            // Limpiar la selección
+                            adapter.clearSelection()
 
                             Toast.makeText(this, "Produktua ezabatu da", Toast.LENGTH_SHORT).show()
                         }
@@ -79,7 +82,7 @@ class Menu2 : AppCompatActivity() {
                     // Pasar el producto seleccionado a la pantalla de actualización
                     val product = selectedItems[0]
                     val intent = Intent(this, updateproduktua::class.java)
-                    intent.putExtra("productId", product.id) // Debes asegurarte de que 'product.id' tiene un valor válido
+                    intent.putExtra("productId", product.id)
                     intent.putExtra("product_name", product.izenburua)
                     intent.putExtra("product_category", product.kategoria)
                     intent.putExtra("product_price", product.prezioa)
@@ -91,7 +94,6 @@ class Menu2 : AppCompatActivity() {
             }
             R.id.action_log_out -> {
                 val intent = Intent(this, MainActivity::class.java) // Actividad de inicio de sesión
-                // Eliminar datos de sesión si es necesario
                 startActivity(intent)
                 finish()
                 true

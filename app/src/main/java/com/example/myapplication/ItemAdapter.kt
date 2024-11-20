@@ -61,4 +61,10 @@ class NombreAdapter(private var produktuak: List<Produktuak>) :
         produktuak = newData // Actualiza la lista de productos
         notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
     }
+
+    // Método para limpiar la selección de productos
+    fun clearSelection() {
+        selectedItems.clear() // Limpia la lista de productos seleccionados
+        notifyDataSetChanged() // Notifica al RecyclerView que se actualicen las vistas
+    }
 }
