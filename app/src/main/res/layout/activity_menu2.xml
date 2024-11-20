@@ -5,13 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#002B4C"
     tools:context=".Menu2">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/produktuak"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+    <!-- RecyclerView -->
+<androidx.recyclerview.widget.RecyclerView
+android:id="@+id/produktuak"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#002B4C"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,16 +16,10 @@
             android:name=".updateproduktua"
             android:exported="false" />
         <activity
-            android:name=".ProduktuaEguneratu"
-            android:exported="false" />
-        <activity
             android:name=".Productua_gehitu"
             android:exported="false" />
         <activity
             android:name=".Menu2"
-            android:exported="false" />
-        <activity
-            android:name=".Menu"
             android:exported="false" />
         <activity
             android:name=".RegisterPage"

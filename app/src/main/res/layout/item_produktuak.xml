@@ -2,55 +2,57 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#007ACC"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- LinearLayout dentro de ConstraintLayout -->
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+    <!-- Textos y CheckBox organizados dentro de un ConstraintLayout -->
+<TextView
+android:id="@+id/ELIzenburua"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=""
+android:textColor="#FFFFFF"
+android:textSize="20sp"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="8dp"/>
 
-        <!-- LinearLayout para los TextViews -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
+<TextView
+android:id="@+id/ELKategoria"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=""
+android:textColor="#FFFFFF"
+android:textSize="20sp"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@id/ELIzenburua"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="8dp"/>
 
-            <TextView
-                android:id="@+id/ELIzenburua"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp" />
+<TextView
+android:id="@+id/ELPrezioa"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text=""
+android:textColor="#FFFFFF"
+android:textSize="20sp"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toBottomOf="@id/ELKategoria"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginTop="8dp"/>
 
-            <TextView
-                android:id="@+id/ELKategoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp" />
+    <!-- CheckBox centrado verticalmente -->
+<CheckBox
+android:id="@+id/checkBox"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Aukeratu"
+android:textColor="#FFFFFF"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintTop_toBottomOf="@id/ELPrezioa"
+android:layout_marginTop="16dp"
+android:layout_gravity="center_vertical" />
 
-            <TextView
-                android:id="@+id/ELPrezioa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <!-- CheckBox centrado verticalmente -->
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
