@@ -33,6 +33,7 @@ class Productua_gehitu : AppCompatActivity() {
 
         val ListakoAukerak = arrayOf("Telefonoa", "Ordenagailua", "Telebista", "Osagarria")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ListakoAukerak)
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         mota.adapter = adapter
 

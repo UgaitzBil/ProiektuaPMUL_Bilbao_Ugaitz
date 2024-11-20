@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
     android:background="#007ACC"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="16dp">
 
-    <!-- Textos y CheckBox organizados dentro de un ConstraintLayout -->
-<TextView
-android:id="@+id/ELIzenburua"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text=""
-android:textColor="#FFFFFF"
-android:textSize="20sp"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-android:layout_marginTop="8dp"/>
+    <!-- TextView para el título a la izquierda -->
+    <TextView
+        android:id="@+id/ELIzenburua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Título del Producto"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-android:id="@+id/ELKategoria"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text=""
-android:textColor="#FFFFFF"
-android:textSize="20sp"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@id/ELIzenburua"
-app:layout_constraintEnd_toEndOf="parent"
-android:layout_marginTop="8dp"/>
+    <!-- TextView para la categoría a la izquierda -->
+    <TextView
+        android:id="@+id/ELKategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Categoría"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ELIzenburua" />
 
-<TextView
-android:id="@+id/ELPrezioa"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text=""
-android:textColor="#FFFFFF"
-android:textSize="20sp"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@id/ELKategoria"
-app:layout_constraintEnd_toEndOf="parent"
-android:layout_marginTop="8dp"/>
+    <!-- TextView para el precio a la derecha -->
+    <TextView
+        android:id="@+id/ELPrezioa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ELIzenburua" />
 
-    <!-- CheckBox centrado verticalmente -->
-<CheckBox
-android:id="@+id/checkBox"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="Aukeratu"
-android:textColor="#FFFFFF"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintTop_toBottomOf="@id/ELPrezioa"
-android:layout_marginTop="16dp"
-android:layout_gravity="center_vertical" />
+    <!-- CheckBox a la derecha -->
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ELPrezioa" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
