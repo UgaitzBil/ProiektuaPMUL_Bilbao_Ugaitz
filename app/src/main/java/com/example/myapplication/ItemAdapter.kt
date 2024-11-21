@@ -29,20 +29,20 @@ class NombreAdapter(private var produktuak: List<Produktuak>) :
     override fun onBindViewHolder(holder: NombreViewHolder, position: Int) {
         val produktua = produktuak[position]
 
-        // Configurar los valores de los TextView
+
         holder.elizenburua.text = "Izena: ${produktua.izenburua}"
         holder.elkategorioa.text = "Mota: ${produktua.kategoria}"
         holder.elprezioa.text = "Prezioa: ${produktua.prezioa} €"
 
-        // Configurar el CheckBox
-        holder.checkBox.setOnCheckedChangeListener(null) // Elimina el listener previo para evitar conflictos
-        holder.checkBox.isChecked = selectedItems.contains(produktua) // Estado del CheckBox
+
+        holder.checkBox.setOnCheckedChangeListener(null)
+        holder.checkBox.isChecked = selectedItems.contains(produktua)
 
         holder.checkBox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                selectedItems.add(produktua) // Añadir a la lista seleccionada
+                selectedItems.add(produktua)
             } else {
-                selectedItems.remove(produktua) // Eliminar de la lista seleccionada
+                selectedItems.remove(produktua)
             }
         }
     }
@@ -51,20 +51,20 @@ class NombreAdapter(private var produktuak: List<Produktuak>) :
         return produktuak.size
     }
 
-    // Método para obtener los productos seleccionados
+
     fun getSelectedItems(): List<Produktuak> {
         return selectedItems.toList()
     }
 
-    // Método para actualizar los datos del adaptador
+
     fun updateData(newData: List<Produktuak>) {
-        produktuak = newData // Actualiza la lista de productos
-        notifyDataSetChanged() // Notifica al RecyclerView que los datos han cambiado
+        produktuak = newData
+        notifyDataSetChanged()
     }
 
-    // Método para limpiar la selección de productos
+
     fun clearSelection() {
-        selectedItems.clear() // Limpia la lista de productos seleccionados
-        notifyDataSetChanged() // Notifica al RecyclerView que se actualicen las vistas
+        selectedItems.clear()
+        notifyDataSetChanged()
     }
 }

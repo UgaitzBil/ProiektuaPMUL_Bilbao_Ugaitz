@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        // Validar formato del correo electrónico
+
         if (!isValidEmail(gmail)) {
             Toast.makeText(this, "Sartu baliozko Gmail-a", Toast.LENGTH_SHORT).show()
             return
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         if (cursor.moveToFirst()) {
             Toast.makeText(this, "Saioa ongi hasi da!", Toast.LENGTH_SHORT).show()
-            // Solo se inicia el nuevo Activity si las credenciales son correctas
+
             val intent = Intent(this, Menu2::class.java)
             startActivity(intent)
         } else {
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         bd.close()
     }
 
-    // Método para validar el formato del correo electrónico
+
     private fun isValidEmail(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }

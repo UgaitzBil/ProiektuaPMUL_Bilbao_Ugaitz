@@ -8,17 +8,6 @@
     android:background="#002B4C"
     tools:context=".Productua_gehitu">
 
-    <!-- Marca del producto -->
-
-    <!-- Nombre del producto -->
-
-    <!-- Tipo del producto -->
-
-    <!-- Precio del producto -->
-
-    <!-- Disponibilidad -->
-
-    <!-- Botón -->
     <TextView
         android:id="@+id/tv_marka"
         android:layout_width="0dp"
@@ -156,7 +145,7 @@
         app:layout_constraintWidth_percent="0.8" />
 
     <Button
-        android:id="@+id/produktuaeguneratu"
+        android:id="@+id/button"
         android:layout_width="0dp"
         android:layout_height="62dp"
         android:backgroundTint="#007ACC"

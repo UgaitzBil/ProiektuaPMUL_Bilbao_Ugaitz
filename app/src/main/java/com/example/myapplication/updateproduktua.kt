@@ -26,24 +26,24 @@ class updateproduktua : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_updateproduktua)
 
-        // Inicializamos los elementos de la UI
+
         edtIzenburua = findViewById(R.id.tfizenprod)
         edtMarca = findViewById(R.id.tfmarka)
         edtPrezioa = findViewById(R.id.tfprice)
         chkEskuragarritasuna = findViewById(R.id.eskuragarritasuna)
         btnUpdate = findViewById(R.id.produktuaeguneratu)
 
-        // Inicializamos el Spinner con las opciones
+
         edtKategoria = findViewById(R.id.mota)
         val listakoAukerak = arrayOf("Telefonoa", "Ordenagailua", "Telebista", "Osagarria")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listakoAukerak)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         edtKategoria.adapter = adapter
 
-        // Inicializamos la base de datos
+
         databaseHelper = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
 
-        // Obtenemos el ID del producto desde el Intent
+
         val productId = intent.getIntExtra("productId", -1) // -1 es el valor por defecto si no se encuentra el extra
         Log.d("updateproduktua", "Product ID recibido: $productId")
 
@@ -54,16 +54,16 @@ class updateproduktua : AppCompatActivity() {
             Log.e("updateproduktua", "ID no válido recibido: $productId")
         }
 
-        // Evento al hacer clic en el botón para actualizar
+
         btnUpdate.setOnClickListener {
             val newIzenburua = edtIzenburua.text.toString().trim()
             val newKategoria = edtKategoria.selectedItem.toString()
             val newPrezioa = edtPrezioa.text.toString().toDoubleOrNull()  // El valor de precio es un Double, pero lo convertimos a String antes de pasar
-            val newMarca = edtMarca.text.toString().trim()  // La marca ya es un String
+            val newMarca = edtMarca.text.toString().trim()
             val isAvailable = chkEskuragarritasuna.isChecked
 
             if (newIzenburua.isNotEmpty() && newKategoria.isNotEmpty() && newPrezioa != null && newMarca.isNotEmpty()) {
-                // Actualizamos el producto en la base de datos
+
                 val success = databaseHelper.updateProduct(productId, newIzenburua, newKategoria, newMarca, newPrezioa, isAvailable)
 
                 if (success) {
@@ -82,7 +82,7 @@ class updateproduktua : AppCompatActivity() {
     private fun loadProductData(productId: Int) {
         val product = databaseHelper.getProductById(productId)
         if (product != null) {
-            // Imprime los datos recuperados
+
             Log.d("updateproduktua", "Product: $product")
             edtIzenburua.setText(product.izenburua)
             edtMarca.setText(product.marka)

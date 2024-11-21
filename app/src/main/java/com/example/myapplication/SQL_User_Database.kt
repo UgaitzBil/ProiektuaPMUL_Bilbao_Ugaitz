@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import Produktuak
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -11,7 +10,7 @@ class SQL_User_Database(
     context: Context?,
     name: String? = "Database",
     factory: SQLiteDatabase.CursorFactory? = null,
-    version: Int = 2 // Incrementa la versión
+    version: Int = 2
 ) : SQLiteOpenHelper(context, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -71,7 +70,7 @@ class SQL_User_Database(
         val produktuak = ArrayList<Produktuak>()
         val db = this.readableDatabase
 
-        // Seleccionar todas las columnas necesarias, incluidas 'marka' y 'eskuragarritasuna'
+
         val query = "SELECT id, izenburua, kategoria, marka, prezioa, eskuragarritasuna FROM produktuak"
         val cursor = db.rawQuery(query, null)
 
@@ -132,14 +131,14 @@ class SQL_User_Database(
         }
 
         val rowsAffected = db.update(
-            "produktuak", // Nombre de la tabla
+            "produktuak",
             values,
             "id = ?",
             arrayOf(productId.toString())
         )
 
         db.close()
-        return rowsAffected > 0 // Retorna true si se actualizó el producto
+        return rowsAffected > 0
     }
 
     fun deleteProduct(productId: Int): Int {

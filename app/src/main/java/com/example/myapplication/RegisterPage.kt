@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class RegisterPage : AppCompatActivity() {
 
-    // Declaración de variables
+
     lateinit var user: TextView
     lateinit var pass: TextView
     lateinit var gmail: TextView
@@ -30,7 +30,7 @@ class RegisterPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_page)
 
-        // Inicialización de vistas
+
         user = findViewById(R.id.ftuser)
         pass = findViewById(R.id.ftpassword)
         gmail = findViewById(R.id.tfgmail)
@@ -56,7 +56,7 @@ class RegisterPage : AppCompatActivity() {
         if (verifyInputFields()) {
             val mail = gmail.text.toString().trim()
 
-            // Verificar si el Gmail ya está registrado
+
             if (isEmailRegistered(mail)) {
                 Toast.makeText(this, "Gmail hau jadanik erregistratuta dago", Toast.LENGTH_SHORT)
                     .show()
@@ -74,7 +74,7 @@ class RegisterPage : AppCompatActivity() {
         val pasahitza = pass.text.toString().trim()
         val mail = gmail.text.toString().trim()
 
-        // Obtener género seleccionado
+
         val generoa = when {
             rbmutila.isChecked -> "Mutila"
             rbneska.isChecked -> "Neska"
@@ -82,7 +82,7 @@ class RegisterPage : AppCompatActivity() {
             else -> ""
         }
 
-        // Verificar campos
+
         return if (erabiltzailea.isEmpty() || pasahitza.isEmpty() || mail.isEmpty() || generoa.isEmpty() || !terminos.isChecked) {
             Toast.makeText(
                 this,
@@ -132,7 +132,7 @@ class RegisterPage : AppCompatActivity() {
             else -> ""
         }
 
-        // Insertar usuario en la base de datos
+
         val result = dbHelper.insertUser(erabiltzailea, mail, pasahitza, generoa)
         if (result != -1L) {
             Toast.makeText(this, "Erregistroa arrakastatsua izan da", Toast.LENGTH_SHORT).show()

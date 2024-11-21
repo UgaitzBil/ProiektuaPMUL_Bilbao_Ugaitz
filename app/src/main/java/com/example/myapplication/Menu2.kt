@@ -21,13 +21,13 @@ class Menu2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu2)
 
-        // Inicializar la base de datos
+
         databaseHelper = SQL_User_Database(this, "Elektronika_Objetuen_Denda.db", null, 1)
 
-        // Obtener la lista de productos desde la base de datos
+
         val produktuakList = databaseHelper.getProduktuak()
 
-        // Configurar el RecyclerView
+
         recyclerView = findViewById(R.id.produktuak)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = NombreAdapter(produktuakList)
@@ -54,12 +54,12 @@ class Menu2 : AppCompatActivity() {
                         .setTitle("Ezabatzeko baieztapena")
                         .setMessage("Ziur zaude hautatutako produktuak ezabatu nahi dituzula?")
                         .setPositiveButton("Sí") { _, _ ->
-                            // Eliminar productos seleccionados
+
                             selectedItems.forEach { product: Produktuak ->
                                 databaseHelper.deleteProduct(product.id)
                             }
 
-                            // Actualizar la lista de productos en el RecyclerView
+
                             val updatedList = databaseHelper.getProduktuak()
                             adapter.updateData(updatedList)
 
@@ -71,7 +71,7 @@ class Menu2 : AppCompatActivity() {
                         .setNegativeButton("No", null)
                         .show()
                 } else {
-                    // Mostrar mensaje si no se seleccionó ningún producto
+
                     Toast.makeText(this, "Mesedez produktu bat aikeratu gutxienez", Toast.LENGTH_SHORT).show()
                 }
                 true
@@ -79,7 +79,7 @@ class Menu2 : AppCompatActivity() {
             R.id.action_update_product -> {
                 val selectedItems = adapter.getSelectedItems()
                 if (selectedItems.size == 1) {
-                    // Pasar el producto seleccionado a la pantalla de actualización
+
                     val product = selectedItems[0]
                     val intent = Intent(this, updateproduktua::class.java)
                     intent.putExtra("productId", product.id)
@@ -99,7 +99,7 @@ class Menu2 : AppCompatActivity() {
                 true
             }
             R.id.action_go_out -> {
-                finishAffinity() // Cerrar todas las actividades
+                finishAffinity()
                 true
             }
             else -> super.onOptionsItemSelected(item)
